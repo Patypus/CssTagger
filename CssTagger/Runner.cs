@@ -45,7 +45,20 @@ namespace CssTagger
 
         private IEnumerable<string> TagKeywordsInScanFileContents(IEnumerable<string> keywords, string markerWord, IEnumerable<string> scanContent)
         {
-            var result = scanContent.Select(line => line.Contains())
+            var result = new List<string>();
+            foreach (var line in scanContent)
+            {
+                var lineToAdd = line;
+                var keywordsInLine = keywords.Where(word => line.Contains(word));
+                if (keywordsInLine.Any())
+                {
+                    foreach (var wordInLine in keywordsInLine)
+                    {
+                        lineToAdd = lineToAdd.Replace(wordInLine, string.Join(" ", markerWord, wordInLine));
+                    }
+                }
+                result.Add(lineToAdd);
+            }
             return null;
         }
     }
