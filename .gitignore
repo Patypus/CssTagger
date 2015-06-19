@@ -1,4 +1,5 @@
 CssTagger/bin/*
 CssTagger/obj/*
+CssTagger/TestData/*
 packages/*
 .nuget/*

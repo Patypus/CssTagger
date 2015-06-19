@@ -9,6 +9,8 @@ namespace CssTagger
 {
     internal class Runner
     {
+        private const string WholeWordFormat = " {0} ";
+
         /// <summary>
         ///  Perform the task of running tagging keywords in a file.
         /// </summary>
@@ -22,7 +24,10 @@ namespace CssTagger
             try
             {
                 var keywords = LoadFileContent(keywordsFile);
-                var scanFileContents = LoadFileContent(keywordsFile);
+                var scanFileContents = LoadFileContent(fileToScan);
+                var taggedContents = TagKeywordsInScanFileContents(keywords, markerWord, scanFileContents);
+                var taggedFileLocation = WriteTaggedContent(fileToScan, taggedContents);
+                result = String.Join(" ", "Complete. Tagged file written to:", taggedFileLocation);
             }
             catch (Exception e)
             {
@@ -49,7 +54,8 @@ namespace CssTagger
             foreach (var line in scanContent)
             {
                 var lineToAdd = line;
-                var keywordsInLine = keywords.Where(word => line.Contains(word));
+                //Matching words on end of lines?
+                var keywordsInLine = keywords.Where(word => line.Contains(string.Format(WholeWordFormat, word)));
                 if (keywordsInLine.Any())
                 {
                     foreach (var wordInLine in keywordsInLine)
@@ -59,7 +65,25 @@ namespace CssTagger
                 }
                 result.Add(lineToAdd);
             }
-            return null;
+            return result;
+        }
+
+        private string WriteTaggedContent(string originalFilePath, IEnumerable<string> taggedContent)
+        {
+            var filePathComponents = GetFilePathAndNameCompontents(originalFilePath);
+            //using same extension as existing file
+            var taggedFilePath = Path.Combine(filePathComponents.Item1, "tagged_" + filePathComponents.Item2 + ".txt");
+            File.WriteAllLines(taggedFilePath, taggedContent);
+
+            return taggedFilePath;
+        }
+
+        private Tuple<string, string> GetFilePathAndNameCompontents(string path)
+        {
+            var fileName = Path.GetFileNameWithoutExtension(path);
+            var pathName = Path.GetDirectoryName(path);
+
+            return Tuple.Create<string, string>(pathName, fileName);
         }
     }
 }
