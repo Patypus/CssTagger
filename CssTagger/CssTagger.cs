@@ -11,11 +11,11 @@ namespace CssTagger
     {
         public static void Main(string[] args)
         {
-            if (args.Count() != 3) 
+            if (args.Count() != 3)
             {
                 PrintUsageMessage();
             }
-            else 
+            else
             {
                 var runner = new Runner();
                 var result = runner.RunTagging(args[0], args[1], args[2]);
