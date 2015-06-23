@@ -10,7 +10,6 @@ namespace CssTagger
 {
     internal class Runner
     {
-        //The @ is crucial to escape the slashes. If you miss it the thing breaks really weirdly and isn't annoying. At all.
         private const string regexTest = @"\b{0}\b";
 
         /// <summary>
