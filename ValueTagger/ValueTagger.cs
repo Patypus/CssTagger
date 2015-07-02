@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CssTagger
+namespace ValueTagger
 {
-    public class CssTagger
+    public class ValueTagger
     {
         public static void Main(string[] args)
         {

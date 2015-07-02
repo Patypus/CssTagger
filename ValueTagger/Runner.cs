@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace CssTagger
+namespace ValueTagger
 {
     internal class Runner
     {
@@ -59,7 +59,7 @@ namespace CssTagger
                 foreach (var wordInLine in keywords)
                 {
                     var wordInLineRegex = new Regex(wordInLine);
-                    lineToAdd = Regex.Replace(lineToAdd, string.Format(regexTest, wordInLine), string.Join("_", markerWord, wordInLine));
+                    lineToAdd = Regex.Replace(lineToAdd, string.Format(regexTest, wordInLine), string.Join(" ", markerWord, wordInLine));
                 }
                 
                 result.Add(lineToAdd);

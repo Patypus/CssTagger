@@ -1,0 +1,6 @@
+D:\Code\C#\CssTagger\CssTagger\bin\Debug\CssTagger.exe.config
+D:\Code\C#\CssTagger\CssTagger\bin\Debug\CssTagger.exe
+D:\Code\C#\CssTagger\CssTagger\bin\Debug\CssTagger.pdb
+D:\Code\C#\CssTagger\CssTagger\obj\Debug\CssTagger.exe
+D:\Code\C#\CssTagger\CssTagger\obj\Debug\CssTagger.pdb
+D:\Code\C#\CssTagger\CssTagger\obj\Debug\CssTagger.csprojResolveAssemblyReference.cache

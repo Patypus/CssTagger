@@ -7,7 +7,7 @@
     <ProjectGuid>{FF29EA5E-54EC-42CF-89E5-7E20491F120E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CssTagger</RootNamespace>
+    <RootNamespace>ValueTagger</RootNamespace>
     <AssemblyName>CssTagger</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CssTagger.cs" />
+    <Compile Include="ValueTagger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runner.cs" />
   </ItemGroup>
